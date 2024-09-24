@@ -22,12 +22,6 @@ const noakhaliTitle = getTextFieldValueById('noakhali-title').innerText
 const feniTitle = getTextFieldValueById('feni-title').innerText
 const quotaTitle = getTextFieldValueById('quota-title').innerText
 const defaultText = document.getElementById('default-text');
-
-
-
-
-
-
 const noakhaliAmount = getTextFieldAmountById('noakhali-amount');
 const feniAmount = getTextFieldAmountById('feni-amount');
 const quotaAmount = getTextFieldAmountById('quota-amount');
@@ -58,6 +52,7 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
         historySection.appendChild(div)
         my_modal_1.showModal()
         defaultText.classList.add('hidden');
+        document.getElementById('noakhali-input').value = ""    
     }
 })
 
@@ -87,7 +82,9 @@ document.getElementById('feni-btn').addEventListener('click', function () {
 
     historySection.appendChild(div)
     defaultText.classList.add('hidden')
-        my_modal_1.showModal()
+    my_modal_1.showModal()
+    document.getElementById('feni-input').value = ""    
+
     }
 });
 
@@ -117,7 +114,9 @@ document.getElementById('quota-btn').addEventListener('click', function () {
         `
     historySection.appendChild(div)
     defaultText.classList.add('hidden')
-        my_modal_1.showModal()
+    my_modal_1.showModal()
+    document.getElementById('quota-input').value = ""    
+
     }
 })
 
