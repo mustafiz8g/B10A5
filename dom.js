@@ -48,14 +48,14 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
         document.getElementById('noakhali-amount').innerText = noakhaliNewAmount;
         document.getElementById('balance').innerText = newBalance;
         
-        const historyItem = document.createElement('div')
-        historyItem.innerHTML = `
-        <div class="p-8 border border-slate-300 rounded-2xl">
+        let div = document.createElement('div')
+        div.innerHTML = `
+        <div class="p-8 border border-slate-300 rounded-2xl  ">
            <h3 class="text-xl font-bold text-primary"> ${noakhaliInput} Taka is ${noakhaliTitle} </h3>
-           <p class="font-light text-secondary">Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
+           <p class="font-light text-secondary"> Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
         </div>
      `
-        historySection.insertBefore(historyItem, historySection.firstChild)
+        historySection.appendChild(div)
         my_modal_1.showModal()
     }
 })
@@ -75,6 +75,16 @@ document.getElementById('feni-btn').addEventListener('click', function () {
 
         document.getElementById('feni-amount').innerText = feniNewAmount;
         document.getElementById('balance').innerText = newBalance;
+
+        let div = document.createElement('div');
+        div.innerHTML = `
+         <div class="p-8 border border-slate-300 rounded-2xl  ">
+           <h3 class="text-xl font-bold text-primary"> ${feniInput} Taka is ${feniTitle} </h3>
+           <p class="font-light text-secondary">Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
+        </div>
+        `
+
+    historySection.appendChild(div)
         my_modal_1.showModal()
     }
 });
@@ -94,6 +104,17 @@ document.getElementById('quota-btn').addEventListener('click', function () {
 
         document.getElementById('quota-amount').innerText = quotaNewAmount;
         document.getElementById('balance').innerText = newBalance;
+
+        let div = document.createElement('div');
+        div.innerHTML = `
+         <div class="p-8 border border-slate-300 rounded-2xl  ">
+           <h3 class="text-xl font-bold text-primary"> ${quotaInput} Taka is ${quotaTitle} </h3>
+           <p class="font-light text-secondary">Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
+        </div>
+        `
+
+    historySection.appendChild(div)
+
         my_modal_1.showModal()
     }
 })
