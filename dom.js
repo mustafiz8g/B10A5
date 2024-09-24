@@ -25,7 +25,7 @@ const donationSection = getTextFieldValueById('donation-section');
 const noakhaliTitle = getTextFieldValueById('noakhali-title').innerText
 const feniTitle = getTextFieldValueById('feni-title').innerText
 const quotaTitle = getTextFieldValueById('quota-title').innerText
-
+const defaultText = document.getElementById('default-text');
 
 
 // noakhali section 
@@ -54,6 +54,7 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
      `
         historySection.appendChild(div)
         my_modal_1.showModal()
+        defaultText.classList.add('hidden')
     }
 })
 
@@ -82,6 +83,7 @@ document.getElementById('feni-btn').addEventListener('click', function () {
         `
 
     historySection.appendChild(div)
+    defaultText.classList.add('hidden')
         my_modal_1.showModal()
     }
 });
@@ -111,7 +113,7 @@ document.getElementById('quota-btn').addEventListener('click', function () {
         `
 
     historySection.appendChild(div)
-
+    defaultText.classList.add('hidden')
         my_modal_1.showModal()
     }
 })
@@ -144,6 +146,7 @@ function historyBtn() {
     showSectionById1('history-section');
     document.getElementById('history-btn').classList.add('bg-btnColor');
     document.getElementById('donation-btn').classList.remove('bg-btnColor')
+    
    
 }
 
