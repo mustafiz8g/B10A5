@@ -27,6 +27,12 @@ const feniAmount = getTextFieldAmountById('feni-amount');
 const quotaAmount = getTextFieldAmountById('quota-amount');
 
 // noakhali section 
+function donateBtn(id){
+    my_modal_1.showModal();
+    defaultText.classList.add('hidden');
+    document.getElementById(id).value = "";
+}
+
 document.getElementById('noakhali-btn').addEventListener('click', function () {
     const noakhaliInput = getInputFieldAmountById('noakhali-input');
     const balance = getTextFieldAmountById('balance');
@@ -50,9 +56,7 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
         </div>
         `
         historySection.appendChild(div)
-        my_modal_1.showModal()
-        defaultText.classList.add('hidden');
-        document.getElementById('noakhali-input').value = ""    
+        donateBtn('noakhali-input');
     }
 })
 
@@ -79,12 +83,8 @@ document.getElementById('feni-btn').addEventListener('click', function () {
            <p class="font-light text-secondary"> Date : ${new Date().toString()} </p>
         </div>
         `
-
     historySection.appendChild(div)
-    defaultText.classList.add('hidden')
-    my_modal_1.showModal()
-    document.getElementById('feni-input').value = ""    
-
+    donateBtn('feni-input');
     }
 });
 
@@ -113,10 +113,7 @@ document.getElementById('quota-btn').addEventListener('click', function () {
         </div>
         `
     historySection.appendChild(div)
-    defaultText.classList.add('hidden')
-    my_modal_1.showModal()
-    document.getElementById('quota-input').value = ""    
-
+    donateBtn('quota-input');
     }
 })
 
@@ -147,7 +144,6 @@ function historyBtn() {
     document.getElementById('history-btn').classList.add('bg-btnColor');
     document.getElementById('donation-btn').classList.remove('bg-btnColor')
 }
-
 // home blog toggle section
 blogBtn.addEventListener('click', function () { 
     window.location.href = 'blog.html'
