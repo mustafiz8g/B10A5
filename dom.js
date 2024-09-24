@@ -1,5 +1,3 @@
-
-// utilities 
 function getTextFieldValueById(id) {
     return document.getElementById(id);
 }
@@ -18,28 +16,32 @@ const feniSection = getTextFieldValueById('feni-section');
 const quotaSection = getTextFieldValueById('quota-section');
 const home = getTextFieldValueById('home');
 const blog = getTextFieldValueById('blog');
-
 const historySection = getTextFieldValueById('history-section');
 const donationSection = getTextFieldValueById('donation-section');
-
 const noakhaliTitle = getTextFieldValueById('noakhali-title').innerText
 const feniTitle = getTextFieldValueById('feni-title').innerText
 const quotaTitle = getTextFieldValueById('quota-title').innerText
 const defaultText = document.getElementById('default-text');
 
 
+
+
+
+
+const noakhaliAmount = getTextFieldAmountById('noakhali-amount');
+const feniAmount = getTextFieldAmountById('feni-amount');
+const quotaAmount = getTextFieldAmountById('quota-amount');
+
 // noakhali section 
 document.getElementById('noakhali-btn').addEventListener('click', function () {
     const noakhaliInput = getInputFieldAmountById('noakhali-input');
-
+    const balance = getTextFieldAmountById('balance');
     if (isNaN(noakhaliInput) || noakhaliInput < 0) {
         return alert('Invalid Donation Amount. Try Again');
+    }else if(noakhaliInput > balance){
+        return alert('InSufficient Balance')
     }
-  
     else {
-        const noakhaliAmount = getTextFieldAmountById('noakhali-amount');
-        const balance = getTextFieldAmountById('balance');
-
         const noakhaliNewAmount = noakhaliAmount + noakhaliInput;
         const newBalance = balance - noakhaliInput;
 
@@ -49,27 +51,26 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
         let div = document.createElement('div')
         div.innerHTML =`
          <div class="p-8 border border-slate-300 rounded-2xl ">
-           <h3 class="text-xl font-bold text-primary mb-2"> ${noakhaliInput} Taka is ${noakhaliInput} </h3>
+           <h3 class="text-xl font-bold text-primary mb-2"> ${noakhaliInput} Taka is ${noakhaliTitle} </h3>
            <p class="font-light text-secondary"> Date : ${new Date().toString()} </p>
         </div>
         `
         historySection.appendChild(div)
         my_modal_1.showModal()
         defaultText.classList.add('hidden');
-        Document.getElementById("noakhali-input").value = "";
     }
 })
 
 //feni Section
 document.getElementById('feni-btn').addEventListener('click', function () {
     const feniInput = getInputFieldAmountById('feni-input');
-    if (feniInput < 0 || isNaN(feniInput)) {
+    const balance = getTextFieldAmountById('balance');
+    if (isNaN(feniInput) || feniInput < 0) {
         return alert('Invalid Donation Amount. Try Again')
+    }else if(feniInput > balance){
+        return alert('InSufficient Balance')
     }
     else {
-        const feniAmount = getTextFieldAmountById('feni-amount');
-        const balance = getTextFieldAmountById('balance');
-
         const feniNewAmount = feniAmount + feniInput;
         const newBalance = balance - feniInput;
 
@@ -93,14 +94,15 @@ document.getElementById('feni-btn').addEventListener('click', function () {
 // quota section 
 document.getElementById('quota-btn').addEventListener('click', function () {
     const quotaInput = getInputFieldAmountById('quota-input');
-    if (quotaInput < 0 || isNaN(quotaInput)) {
+    const balance = getTextFieldAmountById('balance');
+
+    if (isNaN(quotaInput) || quotaInput < 0) {
         return alert('Invalid Donation Amount. Try Again')
+    }else if(quotaInput > balance){
+        return alert('InSufficient Balance')
     }
     else {
-        const quotaAmount = getTextFieldAmountById('quota-amount');
-        const balance = getTextFieldAmountById('balance');
-
-        const quotaNewAmount = quotaAmount + quotaInput;
+         const quotaNewAmount = quotaAmount + quotaInput;
         const newBalance = balance - quotaInput;
 
         document.getElementById('quota-amount').innerText = quotaNewAmount;
