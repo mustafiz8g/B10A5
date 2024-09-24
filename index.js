@@ -4,8 +4,17 @@ function getTextFieldValueById(id) {
 function getTextFieldAmountById(id) {
     return parseFloat(document.getElementById(id).innerText);
 }
+
+// function getInputFieldAmountById(id) {
+//     return parseFloat(document.getElementById(id).value);
+// }
+
 function getInputFieldAmountById(id) {
-    return parseFloat(document.getElementById(id).value);
+    const inputValue = document.getElementById(id).value.trim();
+        if (!/^\d+(\.\d+)?$/.test(inputValue)) {
+        return NaN; 
+    }
+    return parseFloat(inputValue);
 }
 
 const blogBtn = getTextFieldValueById('blog-btn');
@@ -26,18 +35,18 @@ const noakhaliAmount = getTextFieldAmountById('noakhali-amount');
 const feniAmount = getTextFieldAmountById('feni-amount');
 const quotaAmount = getTextFieldAmountById('quota-amount');
 
-// noakhali section 
 function donateBtn(id){
     my_modal_1.showModal();
     defaultText.classList.add('hidden');
     document.getElementById(id).value = "";
 }
 
+// noakhali section 
 document.getElementById('noakhali-btn').addEventListener('click', function () {
     const noakhaliInput = getInputFieldAmountById('noakhali-input');
     const balance = getTextFieldAmountById('balance');
     if (isNaN(noakhaliInput) || noakhaliInput < 0) {
-        return alert('Invalid Donation Amount. Try Again');
+        return alert('Invalid Donation Amount. Try Again')
     }else if(noakhaliInput > balance){
         return alert('InSufficient Balance')
     }
@@ -57,6 +66,7 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
         `
         historySection.appendChild(div)
         donateBtn('noakhali-input');
+        document.getElementById('modal-amount').innerText = noakhaliInput;
     }
 })
 
@@ -85,6 +95,7 @@ document.getElementById('feni-btn').addEventListener('click', function () {
         `
     historySection.appendChild(div)
     donateBtn('feni-input');
+    document.getElementById('modal-amount').innerText = feniInput;
     }
 });
 
@@ -114,6 +125,8 @@ document.getElementById('quota-btn').addEventListener('click', function () {
         `
     historySection.appendChild(div)
     donateBtn('quota-input');
+    document.getElementById('modal-amount').innerText = quotaInput;
+
     }
 })
 
