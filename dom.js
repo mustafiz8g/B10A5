@@ -19,9 +19,6 @@ const quotaSection = getTextFieldValueById('quota-section');
 const home = getTextFieldValueById('home');
 const blog = getTextFieldValueById('blog');
 
-// const donationButton = getTextFieldAmountById('donation-btn')
-// const historyButton = getTextFieldAmountById('history-btn')
-
 const historySection = getTextFieldValueById('history-section');
 const donationSection = getTextFieldValueById('donation-section');
 
@@ -119,7 +116,7 @@ document.getElementById('quota-btn').addEventListener('click', function () {
     }
 })
 
-//Donation button working section 
+//Donation histry button working section 
 function showSectionById1(id) {
     noakhaliSection.classList.add('hidden');
     feniSection.classList.add('hidden');
@@ -138,11 +135,15 @@ function showSectionById2(id) {
 }
 
 function donationBtn() {
-    showSectionById2('history-section')
+    showSectionById2('history-section');
+    document.getElementById('history-btn').classList.remove('bg-btnColor');
+    document.getElementById('donation-btn').classList.add('bg-btnColor')
 }
 
 function historyBtn() {
-    showSectionById1('history-section')
+    showSectionById1('history-section');
+    document.getElementById('history-btn').classList.add('bg-btnColor');
+    document.getElementById('donation-btn').classList.remove('bg-btnColor')
    
 }
 
@@ -161,4 +162,6 @@ blogBtn.addEventListener('click', function () {
     noakhaliSection.classList.toggle('hidden');
     feniSection.classList.toggle('hidden');
     quotaSection.classList.toggle('hidden');
+    historySection.classList.add('hidden')
+
 })

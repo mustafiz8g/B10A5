@@ -23,7 +23,7 @@
                 extend: {
                     colors: {
                         primary: '#111111',
-                        secondary: 'rgba(17, 17, 17, 0.8)',
+                        secondary: 'rgba(17, 17, 17, 0.7)',
                         btnColor: '#B4F461',
                         amount: 'rgba(17, 17, 17, 0.05)',
                         background: 'rgba(253, 241, 216, 0.3)',
@@ -39,14 +39,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="font-Lexend ">
+<body class="font-Lexend">
     <header class="header sticky top-0 ">
         <div id="navbar" class=" bg-background pr-4 pl-4">
             <nav class="container mx-auto flex justify-between items-center pt-6 pb-9 ">
                 <button id="blog-btn" class="btn bg-btnColor text-xl text-primary font-semibold border-none hover:bg-btnColor"><span id="blog">Blog</span><span id="home" class="hidden">Home</span></button>
                 <div class="flex  items-center gap-2">
-                    <img class="" src="assets/logo.png" alt="">
-                    <h1 class="text-xl text-primary font-semibold xl:block lg:block md:block sm:block hidden">Donate Bangladesh</h1>
+                    <img class="w-8" src="assets/logo.png" alt="">
+                    <h1 class="text-2xl text-primary font-semibold xl:block lg:block md:block sm:block hidden">Donate Bangladesh</h1>
                 </div>
                 <div class="flex items-center gap-2">
                     <img src="assets/coin.png " alt="">
@@ -58,10 +58,14 @@
             </nav>
         </div>
         <div id="donation-history-btn" class="flex justify-center gap-6 mt-7 pb-5 ">
-            <button id="donation-btn" onclick="donationBtn()"
+           <div  onclick="donationBtn()"> <button id="donation-btn"
+            class="btn bg-btnColor text-xl text-secondary font-semibold border-none hover:bg-btnColor ">Donation</button></div>
+           <div  onclick="historyBtn()"> <button id="history-btn"
+            class="btn  text-xl text-secondary font-semibold  hover:border-none hover:bg-btnColor bg-none">History</button></div>
+            <!-- <button id="donation-btn" onclick="donationBtn()"
              class="btn bg-btnColor text-xl text-secondary font-semibold border-none">Donation</button>
             <button id="history-btn" onclick="historyBtn()"
-             class="btn  text-xl text-secondary font-semibold border-gray-300 hover:border-none hover:bg-btnColor bg-none">History</button>
+             class="btn  text-xl text-secondary font-semibold border-gray-300 hover:border-none hover:bg-btnColor bg-none">History</button> -->
         </div>
 
     </header>
@@ -186,7 +190,7 @@
                         <span>BDT</span>
                     </div>
                 </button>
-                <h2 id="quota-title" class="text-xl font-bold text-primary">Donated for Aid for Injured in the Quota Movement</h2>
+                <h2 id="quota-title" class="text-xl font-bold text-primary">Donated for Aid for Injured in the Quota Movement , Bangladesh</h2>
                 <p class="text-secondary font-light leading-7">The recent Quota movement has resulted in numerous
                     injuries and significant hardship for many individuals. Your support is crucial in providing medical
                     assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help
