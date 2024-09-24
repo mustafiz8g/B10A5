@@ -35,6 +35,7 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
     if (isNaN(noakhaliInput) || noakhaliInput < 0) {
         return alert('Invalid Donation Amount. Try Again');
     }
+  
     else {
         const noakhaliAmount = getTextFieldAmountById('noakhali-amount');
         const balance = getTextFieldAmountById('balance');
@@ -46,15 +47,16 @@ document.getElementById('noakhali-btn').addEventListener('click', function () {
         document.getElementById('balance').innerText = newBalance;
         
         let div = document.createElement('div')
-        div.innerHTML = `
-        <div class="p-8 border border-slate-300 rounded-2xl  ">
-           <h3 class="text-xl font-bold text-primary"> ${noakhaliInput} Taka is ${noakhaliTitle} </h3>
-           <p class="font-light text-secondary"> Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
+        div.innerHTML =`
+         <div class="p-8 border border-slate-300 rounded-2xl ">
+           <h3 class="text-xl font-bold text-primary mb-2"> ${noakhaliInput} Taka is ${noakhaliInput} </h3>
+           <p class="font-light text-secondary"> Date : ${new Date().toString()} </p>
         </div>
-     `
+        `
         historySection.appendChild(div)
         my_modal_1.showModal()
-        defaultText.classList.add('hidden')
+        defaultText.classList.add('hidden');
+        Document.getElementById("noakhali-input").value = "";
     }
 })
 
@@ -76,9 +78,9 @@ document.getElementById('feni-btn').addEventListener('click', function () {
 
         let div = document.createElement('div');
         div.innerHTML = `
-         <div class="p-8 border border-slate-300 rounded-2xl  ">
-           <h3 class="text-xl font-bold text-primary"> ${feniInput} Taka is ${feniTitle} </h3>
-           <p class="font-light text-secondary">Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
+         <div class="p-8 border border-slate-300 rounded-2xl ">
+           <h3 class="text-xl font-bold text-primary mb-2"> ${feniInput} Taka is ${feniTitle} </h3>
+           <p class="font-light text-secondary"> Date : ${new Date().toString()} </p>
         </div>
         `
 
@@ -106,12 +108,11 @@ document.getElementById('quota-btn').addEventListener('click', function () {
 
         let div = document.createElement('div');
         div.innerHTML = `
-         <div class="p-8 border border-slate-300 rounded-2xl  ">
-           <h3 class="text-xl font-bold text-primary"> ${quotaInput} Taka is ${quotaTitle} </h3>
-           <p class="font-light text-secondary">Date :  ${new Date().toLocaleDateString()} GMT +0600 (Bangladesh Standard Time)</p>
+         <div class="p-8 border border-slate-300 rounded-2xl ">
+           <h3 class="text-xl font-bold text-primary mb-2"> ${quotaInput} Taka is ${quotaTitle} </h3>
+           <p class="font-light text-secondary"> Date : ${new Date().toString()} </p>
         </div>
         `
-
     historySection.appendChild(div)
     defaultText.classList.add('hidden')
         my_modal_1.showModal()
@@ -124,14 +125,12 @@ function showSectionById1(id) {
     feniSection.classList.add('hidden');
     quotaSection.classList.add('hidden');
 
-
     document.getElementById(id).classList.remove('hidden')
 }
 function showSectionById2(id) {
     noakhaliSection.classList.remove('hidden');
     feniSection.classList.remove('hidden');
     quotaSection.classList.remove('hidden');
-
 
     document.getElementById(id).classList.add('hidden')
 }
@@ -146,25 +145,9 @@ function historyBtn() {
     showSectionById1('history-section');
     document.getElementById('history-btn').classList.add('bg-btnColor');
     document.getElementById('donation-btn').classList.remove('bg-btnColor')
-    
-   
 }
 
-
-
-
-
 // home blog toggle section
-blogBtn.addEventListener('click', function () {
-    faqSection.classList.toggle('hidden');
-
-
-    home.classList.toggle('hidden')
-    blog.classList.toggle('hidden')
-    donationHistoryBtn.classList.toggle('hidden');
-    noakhaliSection.classList.toggle('hidden');
-    feniSection.classList.toggle('hidden');
-    quotaSection.classList.toggle('hidden');
-    historySection.classList.add('hidden')
-
+blogBtn.addEventListener('click', function () { 
+    window.location.href = 'blog.html'
 })
